@@ -9,6 +9,10 @@ class Fone:
     def get_id(self)->str:
         return self.__id
     
+    def isValid(self, number:str):
+        
+
+    
     def __str__(self)->str:
         return f"{self.__number}:{self.__id}"
     
@@ -24,4 +28,6 @@ class Contato:
     def get_favorito(self)->bool:
         return self.__favorito
     
-    def get_
+    def get_fone(self):
+        return self.__fone
+    
