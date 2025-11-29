@@ -52,8 +52,98 @@
         },
         {
             "label": "2025-11-29_00-53-38",
-            "content": "class Fone:\n    def __init__(self, id:str, number:str):\n        self.__id: str = id\n        self.__number: str = number\n\n    def get_id(self)->str:\n        return self.__id\n    \n    def get_number(self)->str:\n        return self.__number\n    \n    def isValid(self)->bool:\n        validos=\"0123456789().\"\n        for carac in self.__number:\n            if carac not in validos:\n                return False\n        return True \n    \n    def __str__(self)->str:\n        return f\"{self.__id}:{self.__number}\"\n    \nclass Contato:\n    def __init__(self, nome:str):\n        self.__nome:str=nome\n        self.__favorito:bool=False\n        self.__fones:list[Fone|None]=[]\n\n    def get_nome(self)->str:\n        return self.__nome\n    \n    def get_favorito(self)->bool:\n        return self.__favorito\n    \n    def get_fone(self):\n        return self.__fones\n    \n    def addFone(self, nome:str, number:str):\n        fone=Fone(nome,number)\n        \n        if not fone.isValid():\n            raise Exception(\"fone invalido\")\n        \n        self.__fones.append(fone)\n    \n    def remover(self, index:int):\n        if index < 0 or index >= len(self.__fones):\n                return \n        \n        del self.__fones[index]\n        return \n    \n    def toogleFavorited(self):\n        self.__favorito = not self.__favorito\n\n    def isfavorited(self)->bool:\n        return self.__favorito\n    \n    def set_nome(self,nome:str):\n        self.__nome=nome\n            \n    def __str__(self):\n        fones= \", \".join(str(elem) for elem in self.__fones)\n        return f\"- {self.__fones} [{fones}]\"\n       \n\n\nclass Agenda:\n    def __init__(self):\n        self.__contatos:list[Contato|None]=[]\n\n    def get_contatos(self):\n        return self.__contatos\n    \n    \n        \n\ndef main():\n    contato=None    \n    while True:\n        line:str=input()\n        print (\"$\"+line)\n        args:list[str]=line.split(\" \")\n        if args[0]==\"end\":\n            break\n        elif args[0]==\"show\":\n            print(contato)\n        elif args[0]==\"init\":\n            nome:str=(args[1])\n            contato=Contato(nome)\n            \n",
+            "content": "@@ -1550,15 +1550,34 @@\n n f%22\n+- %7Bself.__fones%7D %5B\n %7Bfones%7D\n+%5D\n %22%0A  \n",
             "lines": "90"
+        },
+        {
+            "label": "2025-11-29_14-24-48",
+            "content": "@@ -1488,12 +1488,11 @@\n s= %22\n-@,%22 \n+, %22\n .joi\n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-29_14-39-32",
+            "content": "@@ -2078,14 +2078,8 @@\n        %0A\n-main()\n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-29_14-39-59",
+            "content": "@@ -657,16 +657,17 @@\n one%5D=%5B%5D%0A\n+%0A\n     def \n@@ -864,26 +864,28 @@\n dFone(self, \n-id\n+nome\n :str, number\n@@ -903,55 +903,158 @@\n     \n-self.__fones.append(Fone(id, number))%0A%0A%0A       \n+fone=Fone(nome,number)%0A        %0A        if not fone.isValid():%0A            raise Exception(%22fone invalido%22)%0A        %0A        self.__fones.append(fone)\n %0A   \n@@ -1484,16 +1484,17 @@\n fones= %22\n+@\n ,%22 .join\n@@ -1551,31 +1551,15 @@\n n f%22\n-@%7Bself.__nome%7D%5B\n %7Bfones%7D\n-%5D\n %22%0A  \n",
+            "lines": "91"
+        },
+        {
+            "label": "2025-11-29_17-06-26",
+            "content": "@@ -1440,17 +1440,17 @@\n eturn f%22\n--\n+@\n %7Bself.__\n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-29_17-09-53",
+            "content": "@@ -1441,17 +1441,16 @@\n turn f%22-\n- \n %7Bself.__\n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-29_17-09-59",
+            "content": "@@ -1455,17 +1455,16 @@\n .__nome%7D\n- \n %5B%7Bfones%7D\n@@ -1464,17 +1464,16 @@\n %7Bfones%7D%5D\n- \n %22%0A      \n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-29_17-10-38",
+            "content": "@@ -1465,16 +1465,17 @@\n %7Bfones%7D%5D\n+ \n %22%0A      \n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-29_17-11-05",
+            "content": "@@ -1669,20 +1669,13 @@\n ato=\n-Contato(%22 %22)\n+None \n    %0A\n@@ -1980,130 +1980,8 @@\n me)%0A\n-        elif args%5B0%5D==%22add%22:%0A            id=(args%5B1%5D)%0A            numero=(args%5B2%5D)%0A            contato.addFone(id,numero)%0A\n     \n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-29_17-18-17",
+            "content": "@@ -1379,17 +1379,16 @@\n ones= %22,\n- \n %22 .join(\n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-11-29_17-18-44",
+            "content": "@@ -651,14 +651,18 @@\n Fone\n+%7CNone\n %5D=%5B%5D%0A\n-%0A\n     \n@@ -682,24 +682,14 @@\n self\n-,nome:str)-%3ENone\n+)-%3Estr\n :%0A  \n@@ -686,32 +686,39 @@\n )-%3Estr:%0A        \n+return \n self.__nome=nome\n@@ -708,29 +708,24 @@\n  self.__nome\n-=nome\n %0A    %0A    de\n@@ -899,21 +899,37 @@\n     \n-fone=\n+ self.__fones.append(\n Fone(id,\n numb\n@@ -928,23 +928,27 @@\n (id,\n+ \n number)\n+)%0A%0A\n %0A       \n if n\n@@ -947,159 +947,134 @@\n     \n-if not fone.isValid():%0A           raise Exception(f%22numero invalido%22)%0A       self.__fones.append(fone)%0A%0A%0A\n+%0A    %0A    def remover(self, index:int):%0A        if index %3C 0 or index %3E= len(self.__fones):%0A \n        \n-%0A\n     \n-%0A\n     \n-def rmFone(self, index:int):%0A\n+return %0A        %0A \n     \n@@ -1100,16 +1100,31 @@\n %5Bindex%5D%0A\n+        return \n %0A    %0A  \n@@ -1373,169 +1373,273 @@\n     \n-favorito=%22@ %22  if self.__favorito is True else %22-%22%0A       fones=%22,%22.join(str(x)for x in self.__fones)%0A       return f%22%7Bfavorito%7D%7Bself.__nome%7D %5B%7Bfones%7D%5D%22\n+ fones= %22, %22 .join(str(elem) for elem in self.__fones)%0A        return f%22- %7Bself.__nome%7D %5B%7Bfones%7D%5D%22%0A       %0A%0A%0Aclass Agenda:%0A    def __init__(self):%0A        self.__contatos:list%5BContato%7CNone%5D=%5B%5D%0A%0A    def get_contatos(self):%0A        return self.__contatos\n %0A    \n+%0A\n    \n-%0A\n+ %0A  \n     \n@@ -2110,272 +2110,8 @@\n ro)%0A\n-        elif args%5B0%5D==%22rm%22:%0A            index=int(args%5B1%5D)%0A            contato.rmFone(index)%0A        elif args%5B0%5D==%22tfav%22:%0A            contato.toogleFavorited()%0A        else:%0A            print(%22comando invalido%22)%0A      except Exception as e:%0A         print(e)    %0A\n     \n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-11-29_22-22-34",
+            "content": "@@ -2209,22 +2209,16 @@\n alido%22)%0A\n-      \n       ex\n@@ -2238,19 +2238,16 @@\n n as e:%0A\n-   \n         \n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-11-29_22-22-59",
+            "content": "@@ -2217,16 +2217,20 @@\n         \n+    \n except E\n@@ -2244,16 +2244,18 @@\n n as e:%0A\n+  \n         \n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-11-29_22-23-23",
+            "content": "@@ -1563,20 +1563,25 @@\n =Contato\n+(%22 %22)\n    %0A\n-\n     whil\n@@ -1681,25 +1681,8 @@\n  %22)%0A\n-        try:%0A    \n     \n@@ -1720,21 +1720,14 @@\n     \n-   \n break%0A\n-    \n     \n@@ -1752,18 +1752,16 @@\n %22show%22:%0A\n-  \n         \n@@ -1779,36 +1779,32 @@\n ontato)%0A        \n-    \n elif args%5B0%5D==%22i\n@@ -1821,18 +1821,16 @@\n         \n-  \n nome:str\n@@ -1832,34 +1832,32 @@\n e:str=(args%5B1%5D)%0A\n-  \n             cont\n@@ -1874,36 +1874,32 @@\n o(nome)%0A        \n-    \n elif args%5B0%5D==%22a\n@@ -1919,22 +1919,21 @@\n     \n-  \n id=\n+(\n args%5B1%5D\n+)\n %0A\n- \n     \n@@ -1944,26 +1944,25 @@\n     \n- \n numero=\n+(\n args%5B2%5D\n+)\n %0A\n-  \n     \n@@ -1996,36 +1996,32 @@\n numero)%0A        \n-   \n- \n elif args%5B0%5D==%22r\n@@ -2036,18 +2036,16 @@\n         \n-  \n index=in\n@@ -2047,34 +2047,32 @@\n ex=int(args%5B1%5D)%0A\n-  \n             cont\n@@ -2089,20 +2089,16 @@\n (index)%0A\n-    \n         \n@@ -2123,34 +2123,32 @@\n v%22:%0A            \n-  \n contato.toogleFa\n@@ -2169,20 +2169,14 @@\n     \n-    \n else:%0A\n-  \n     \n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-11-29_22-29-17",
+            "content": "@@ -1412,17 +1412,16 @@\n  else %22-\n- \n %22%0A      \n",
+            "lines": "94"
+        },
+        {
+            "label": "2025-11-29_22-29-44",
+            "content": "@@ -1430,17 +1430,16 @@\n fones=%22,\n- \n %22.join(s\n@@ -1492,17 +1492,16 @@\n avorito%7D\n- \n %7Bself.__\n",
+            "lines": "94"
+        },
+        {
+            "label": "2025-11-29_22-30-02",
+            "content": "@@ -1493,16 +1493,17 @@\n avorito%7D\n+ \n %7Bself.__\n",
+            "lines": "94"
+        },
+        {
+            "label": "2025-11-29_22-30-13",
+            "content": "@@ -983,21 +983,22 @@\n n(f%22\n-fail:\n+numero\n  invalid\n  num\n@@ -993,23 +993,17 @@\n  invalid\n- number\n+o\n %22)%0A     \n",
+            "lines": "94"
+        },
+        {
+            "label": "2025-11-29_22-30-49",
+            "content": "class Fone:\n    def __init__(self, id:str, number:str):\n        self.__id: str = id\n        self.__number: str = number\n\n    def get_id(self)->str:\n        return self.__id\n    \n    def get_number(self)->str:\n        return self.__number\n    \n    def isValid(self)->bool:\n        validos=\"0123456789().\"\n        for carac in self.__number:\n            if carac not in validos:\n                return False\n        return True \n    \n    def __str__(self)->str:\n        return f\"{self.__id}:{self.__number}\"\n    \nclass Contato:\n    def __init__(self, nome:str):\n        self.__nome:str=nome\n        self.__favorito:bool=False\n        self.__fones:list[Fone]=[]\n\n    def get_nome(self,nome:str)->None:\n        self.__nome=nome\n    \n    def get_favorito(self)->bool:\n        return self.__favorito\n    \n    def get_fone(self):\n        return self.__fones\n    \n    def addFone(self, id:str, number:str):\n       fone=Fone(id,number)\n       if not fone.isValid():\n           raise Exception(f\"fail: invalid number\")\n       self.__fones.append(fone)\n\n\n       \n    \n    def rmFone(self, index:int):\n       del self.__fones[index]\n\n    \n    def toogleFavorited(self):\n        self.__favorito = not self.__favorito\n\n    def isfavorited(self)->bool:\n        return self.__favorito\n    \n    def set_nome(self,nome:str):\n        self.__nome=nome\n            \n    def __str__(self):\n       favorito=\"@ \"  if self.__favorito is True else \"- \"\n       fones=\", \".join(str(x)for x in self.__fones)\n       return f\"{favorito}{self.__nome} [{fones}]\"\n       \n      \n\ndef main():\n    contato=Contato   \n    while True:\n        line:str=input()\n        print (\"$\"+line)\n        args:list[str]=line.split(\" \")\n        try:\n            if args[0]==\"end\":\n               break\n            elif args[0]==\"show\":\n              print(contato)\n            elif args[0]==\"init\":\n              nome:str=(args[1])\n              contato=Contato(nome)\n            elif args[0]==\"add\":\n              id=args[1]\n              numero=args[2]\n              contato.addFone(id,numero)\n            elif args[0]==\"rm\":\n              index=int(args[1])\n              contato.rmFone(index)\n            elif args[0]==\"tfav\":\n              contato.toogleFavorited()\n            else:\n              print(\"comando invalido\")\n        except Exception as e:\n          print(e)    \n            \nmain()",
+            "lines": "94"
         }
     ]
 }
